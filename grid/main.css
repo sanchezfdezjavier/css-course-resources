@@ -1,6 +1,11 @@
 .container {
   margin: 20px;
   display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: [row-1-start] 5rem [row-1-end row-2-start] minmax(
+      200,
+      600
+    );
 }
 
 .el1 {
@@ -9,10 +14,14 @@
 
 .el2 {
   background: rgba(255, 0, 0, 0.5);
+  grid-column: 1 / -1;
+  grid-row: row-2-start / span 1;
+  z-index: 10;
 }
 
 .el3 {
   background: rgba(0, 128, 0, 0.5);
+  grid-area: row-1-start / 2 / row-2-end / span 3;
 }
 
 .el4 {
